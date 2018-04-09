@@ -1,0 +1,23 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: maven
+    tag: '3.5.3-jdk-8'
+
+inputs:
+  - name: apps-platform-acceleration-removing-instance-specific-state-code
+  - name: version
+
+outputs:
+  - name: build-output
+
+run:
+  path: bash
+  args:
+  - -exc
+  - |
+    cd apps-platform-acceleration-removing-instance-specific-state-code
+    mvn package
+    cp target/remove-session-state-lab.war ../build-output/remove-session-state-lab-$(cat ../version/number).war
