@@ -49,7 +49,7 @@ jobs:
     params:
       file: version/number
 
-- name: deploy-review
+- name: deploy-sandbox
   plan:
   - get: apps-platform-acceleration-removing-instance-specific-state-code
     passed: [build]
