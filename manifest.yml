@@ -1,0 +1,10 @@
+---
+applications:
+- name: remove-session-state
+  path: target/remove-session-state-lab.war
+  instances: 2
+  random-route: true
+  no-start: true
+  buildpack: java_buildpack_offline
+  services:
+  - my-redis
